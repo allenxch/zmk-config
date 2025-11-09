@@ -1,15 +1,11 @@
 #+Title: allenxch's ferris sweep zmk-config
 
 Original config forked from [[https://github.com/sky-bro/zmk-config/][sky-bro's zmk-config]].
-However there is different approach to the symbol layer and modifiers.
+However, I took a different approach to the symbol layer and modifiers.
 
 ** Flashing ZMK Firmware Tutorial
 
 1. [[https://github.com/allenxch/zmk-config/fork][fork]] this repo and/or download firmware.zip from github Actions.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 210a541 (Update README.org)
    Unzip it to find the firmware files.
 2. Connect half to the computer with a usbc data transfer cable.
 3. Press the =&bootloader= key on the keyboard(know your keymap).
@@ -17,7 +13,6 @@ However there is different approach to the symbol layer and modifiers.
 4. Mount your nicenano. If it does not show up, check your =dmesg= and =lsblk=, then mount it manually with =mount=.
 5. copy the corresponding file to the directory mounted on.
 6. Do steps 2-5 for the other half if this is your first time flashing. If not, you only need to flash the master side(left).
-<<<<<<< HEAD
 
 ** Config and Keymap
     - For specifics please check the files.
@@ -41,44 +36,6 @@ However there is different approach to the symbol layer and modifiers.
     - The right half is a virtual mouse mimicked with hjkl movement keys.
 
 *** Bluetooth Profiles management and Keyboard management Layer
-=======
-2. Connect to computer with usb cable.
-3. 1) Press the =&bootloader= key on the keyboard(know your keymap).
-   2) Press the reset button twice
-4. 1) Mount your nice-nano.
-   2) Unzip firmware.zip and copy the corresponding file to the directory mounted.
-5. Do steps 2-4 for the other half if this is your first time flashing. If not, you only need to flash the master side(left).
-=======
->>>>>>> 210a541 (Update README.org)
-
-** Config and Keymap
-    - For specifics please check the files.
-
-*** Base Layer
-    - QWERTY with no extra behaviour to ensure smooth vim experience.
-
-*** Number and Symbol Layer
-    - Numners on the top row.
-    - Additional symbols are accessed with shift.
-    - Left Modifiers.
-
-*** Utility Layer
-    - F keys.
-    - Useful system functions.
-    - Right Modifiers.
-
-*** Gaming / Mouse Layer
-<<<<<<< HEAD
-    - Enter with a Combo of left layer key and right layer key, pressed at the same time.
-    - The left half is essentially a one-handed gaming keyboard. The right half is a virtual mouse mimicked with hjkl movement keys.
->>>>>>> 36c11bb (updated README)
-=======
-    - Toggle this layer with a combo of both layer keys.
-    - The left half is essentially a one-handed gaming keyboard.
-    - The right half is a virtual mouse mimicked with hjkl movement keys.
-
-*** Bluetooth Profiles management and Keyboard management Layer
->>>>>>> 9905ff9 (Updated README)
 
 * References
 - [[https://nickcoutsos.github.io/keymap-editor/][keymap editor]]

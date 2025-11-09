@@ -40,51 +40,9 @@
 
 / {
     chosen { zmk,charmap = &charmap_us; };
-<<<<<<< HEAD
-<<<<<<< HEAD
 
     behaviors {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    behaviors {   
-=======
-
-    behaviors {
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-        ht: hold_tap {
-=======
-        ht: hold_tap {                        // not used
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-        ht: hold_tap {
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
-            label = "hold_tap";
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
-        };
-<<<<<<< HEAD
->>>>>>> 6151442 (fixes)
-=======
-
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
->>>>>>> 9905ff9 (Updated README)
         mmv {
-=======
-        mmv {                               // mouse movemet
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-        mmv {
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
             acceleration-exponent = <1>;      // 1
             time-to-max-speed-ms = <300>;    // 40
             delay-ms = <0>;                   // 0
@@ -97,53 +55,7 @@
         };
     };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     combos {
-        compatible = "zmk,combos";
-=======
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-<<<<<<< HEAD
->>>>>>> e9867ad (Cleaning up the config file)
-
-<<<<<<< HEAD
-        toggle_double {
-            timeout-ms = <300>;
-            bindings = <&tog 3>;
-            key-positions = <30 33>;
-=======
-=======
->>>>>>> 6151442 (fixes)
-        double_layer {
-            if-layers = <1 2>;
-            then-layer = <3>;
->>>>>>> 0d9ee15 (Fixed conditional layer)
-        };
-    };
-
-=======
-//    conditional_layers {
-//        compatible = "zmk,conditional-layers";
-//        double_layer {
-//            if-layers = <1 2>;
-//            then-layer = <3>;
-//        };
-//    };
-//
->>>>>>> 29ccd2c (Removed Conditional Layer to see if Combo works)
-=======
->>>>>>> 36c11bb (updated README)
-    combos {
-=======
-    combos {                                // combo toggle mouse layer
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-    combos {
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
         compatible = "zmk,combos";
 
         toggle_double {
@@ -159,260 +71,50 @@
         base_layer {
             display-name = "Base";
             bindings = <
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 &kp Q  &kp W  &kp E  &kp R  &kp T         &kp Y      &kp U  &kp I      &kp O    &kp P
 &kp A  &kp S  &kp D  &kp F  &kp G         &kp H      &kp J  &kp K      &kp L    &kp BSPC
 &kp Z  &kp X  &kp C  &kp V  &kp B         &kp N      &kp M  &kp COMMA  &kp DOT  &kp ENTER
                      &mo 1  &kp LSHIFT    &kp SPACE  &mo 2
-=======
-&kp Q  &kp W  &kp E  &kp R         &kp T               &kp Y             &kp U         &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F         &kp G               &kp H             &kp J         &kp K      &kp L    &kp BSPC
-&kp Z  &kp X  &kp C  &kp V         &kp B               &kp N             &kp M         &kp COMMA  &kp DOT  &kp ENTER
-<<<<<<< HEAD
-<<<<<<< HEAD
-                     &lt SYM1 TAB  &mt LSHIFT SPACE    &mt RSHIFT SPACE  &lt SYM2 TAB
->>>>>>> be25e4e (added modifiers)
-=======
-                     &lt SYM1 TAB  &ht LSHIFT SPACE    &ht RSHIFT SPACE  &lt SYM2 TAB
->>>>>>> 2136b9c (Added Toggle to Layer 3)
-=======
-                     &lt 1 TAB     &ht LSHIFT SPACE       &ht RSHIFT SPACE  &lt 2 TAB
->>>>>>> 6151442 (fixes)
-=======
-                &kp Q  &kp W  &kp E  &kp R         &kp T               &kp Y             &kp U         &kp I      &kp O    &kp P
-                &kp A  &kp S  &kp D  &kp F         &kp G               &kp H             &kp J         &kp K      &kp L    &kp BSPC
-                &kp Z  &kp X  &kp C  &kp V         &kp B               &kp N             &kp M         &kp COMMA  &kp DOT  &kp ENTER
-                                     &lt 1 TAB     &ht LSHIFT SPACE    &ht RSHIFT SPACE  &lt 2 TAB
->>>>>>> e3b6b6c (fixes)
-=======
-&kp Q  &kp W  &kp E  &kp R  &kp T         &kp Y      &kp U  &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D  &kp F  &kp G         &kp H      &kp J  &kp K      &kp L    &kp BSPC
-&kp Z  &kp X  &kp C  &kp V  &kp B         &kp N      &kp M  &kp COMMA  &kp DOT  &kp ENTER
-<<<<<<< HEAD
-                     &to 1  &kp LSHIFT    &kp SPACE  &to 2
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
-                     &mo 1  &kp LSHIFT    &kp SPACE  &mo 2
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
             >;
         };
 
         left_layer {
-<<<<<<< HEAD
-<<<<<<< HEAD
             display-name = "Numbers & Symbols";
-=======
-            display-name = "Numbers and Symbols";
->>>>>>> 6151442 (fixes)
-=======
-            display-name = "Numbers & Symbols";
->>>>>>> 9905ff9 (Updated README)
             bindings = <
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 &kp N1      &kp N2    &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
 &kp TAB     &kp LALT  &kp LCTRL  &kp LMETA  &kp ESC    &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
 &kp LSHIFT  &none     &kp LMETA  &kp LCTRL  &none      &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
                                  &trans     &trans     &trans     &trans
-=======
-&kp N1   &kp N2    &kp N3     &kp N4     &kp N5    &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp ESC  &kp LALT  &kp LCTRL  &kp LMETA  &none     &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&none    &none     &none      &none      &none     &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-                              &trans     &trans    &trans     &trans
->>>>>>> be25e4e (added modifiers)
-=======
-&kp N1      &kp N2    &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp ESC     &kp LALT  &kp LCTRL  &kp LMETA  &none          &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&kp LSHIFT  &none     &none      &none      &bootloader    &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-                                 &trans     &trans         &trans     &tog 3
->>>>>>> 2136b9c (Added Toggle to Layer 3)
-=======
-                &kp N1      &kp N2    &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-                &kp ESC     &kp LALT  &kp LCTRL  &kp LMETA  &none          &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-                &kp LSHIFT  &none     &none      &none      &bootloader    &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-<<<<<<< HEAD
-                                                 &trans     &trans         &trans     &tog 3
->>>>>>> e3b6b6c (fixes)
-=======
-                                                 &trans     &trans         &trans     &trans
->>>>>>> 29ccd2c (Removed Conditional Layer to see if Combo works)
-=======
-&kp N1   &kp N2    &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp ESC  &kp LALT  &kp LCTRL  &kp LMETA  &none          &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&kp TAB  &none     &none      &none      &bootloader    &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-                              &trans     &trans         &trans     &trans
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
-&kp N1      &kp N2    &kp N3     &kp N4     &kp N5         &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp TAB     &kp LALT  &kp LCTRL  &kp LMETA  &kp ESC        &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&kp LSHIFT  &none     &none      &none      &none          &tog 4     &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-                                 &trans     &trans         &trans     &trans
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-&kp N1      &kp N2    &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp TAB     &kp LALT  &kp LCTRL  &kp LMETA  &kp ESC    &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&kp LSHIFT  &none     &kp LMETA  &kp LCTRL  &none      &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
-                                 &trans     &trans     &trans     &trans
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
             >;
         };
 
         right_layer {
             display-name = "Utilities";
             bindings = <
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e7206eb (Added escape key to gaming/mouse layer.)
 &kp F1  &kp F2   &kp F3   &kp F4   &none      &none    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
 &kp F5  &kp F6   &kp F7   &kp F8   &kp ESC    &kp ESC  &kp RMETA     &kp RCTRL     &kp RALT    &kp TAB
 &kp F9  &kp F10  &kp F11  &kp F12  &tog 4     &tog 4   &kp C_BRI_DN  &kp C_BRI_UP  &none       &kp RSHIFT
                           &trans   &trans     &trans   &trans
-<<<<<<< HEAD
-=======
-&soft_off        &out OUT_TOG    &kp PSCRN      &kp C_MUTE    &kp C_PREV    &bt BT_SEL 1  &none      &none      &none     &bt BT_SEL 4
-&default_report  &bt BT_CLR      &kp C_BRI_UP   &kp C_VOL_UP  &kp C_PP      &bt BT_SEL 0  &kp RMETA  &kp RCTRL  &kp RALT  &bt BT_SEL 2
-&bootloader      &studio_unlock  &kp C_BRI_DEC  &kp C_VOL_DN  &kp C_NEXT    &bt BT_CLR    &none      &none      &none     &bt BT_SEL 3
-                                                &trans        &trans        &trans        &trans
->>>>>>> be25e4e (added modifiers)
-=======
-&none            &out OUT_TOG    &none        &kp C_PREV  &bt BT_SEL 0    &bt BT_SEL 2  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE  &none
-&default_report  &bt BT_CLR      &soft_off    &kp C_PP    &bt BT_SEL 1    &bt BT_SEL 3  &kp RMETA      &kp RCTRL     &kp RALT    &kp ESC
-&none            &studio_unlock  &bootloader  &kp C_NEXT  &bt BT_CLR      &bt BT_SEL 4  &kp C_BRI_DEC  &kp C_BRI_UP  &kp PSCRN   &none
-                                              &trans      &trans          &trans        &trans
->>>>>>> 1a7fdde (Configured function layer)
-=======
-&soft_off        &out OUT_TOG    &bt BT_SEL 0  &bt BT_SEL 2  &kp C_PREV    &none        &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&default_report  &bt BT_CLR      &bt BT_SEL 1  &bt BT_SEL 3  &kp C_PP      &none        &kp RMETA      &kp RCTRL     &kp RALT    &kp ESC
-&none            &studio_unlock  &bt BT_CLR    &bt BT_SEL 4  &kp C_NEXT    &bootloader  &kp C_BRI_DEC  &kp C_BRI_UP  &none       &kp RSHIFT
-                                               &tog 3        &trans        &trans       &trans
->>>>>>> 2136b9c (Added Toggle to Layer 3)
-=======
-                &soft_off        &out OUT_TOG    &bt BT_SEL 0  &bt BT_SEL 2  &kp C_PREV    &none        &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-                &default_report  &bt BT_CLR      &bt BT_SEL 1  &bt BT_SEL 3  &kp C_PP      &none        &kp RMETA      &kp RCTRL     &kp RALT    &kp ESC
-                &none            &studio_unlock  &bt BT_CLR    &bt BT_SEL 4  &kp C_NEXT    &bootloader  &kp C_BRI_DEC  &kp C_BRI_UP  &none       &kp RSHIFT
-<<<<<<< HEAD
-                                                               &tog 3        &trans        &trans       &trans
->>>>>>> e3b6b6c (fixes)
-=======
-                                                               &trans        &trans        &trans       &trans
->>>>>>> 29ccd2c (Removed Conditional Layer to see if Combo works)
-=======
-&soft_off        &out OUT_TOG    &bt BT_SEL 0  &bt BT_SEL 2  &kp C_PREV    &none        &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&default_report  &bt BT_CLR      &bt BT_SEL 1  &bt BT_SEL 3  &kp C_PP      &none        &kp RMETA      &kp RCTRL     &kp RALT    &kp ESC
-&none            &studio_unlock  &bt BT_CLR    &bt BT_SEL 4  &kp C_NEXT    &bootloader  &kp C_BRI_DEC  &kp C_BRI_UP  &none       &kp RSHIFT
-                                               &trans        &trans        &trans       &trans
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
-&kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_BRI_DEC  &kp C_BRI_UP   &none     &kp C_VOL_DN   &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&none       &none     &none       &none          &none          &kp ESC   &kp RMETA      &kp RCTRL     &kp RALT    &kp TAB
-&none       &none     &none       &none          &tog 4         &none     &none          &none         &none       &kp RSHIFT
-                                  &trans         &trans         &trans    &trans
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-&kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_BRI_DEC  &kp C_BRI_UP    &none    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&none       &none     &none       &none          &none           &kp ESC  &kp RMETA     &kp RCTRL     &kp RALT    &kp TAB
-&none       &none     &none       &none          &tog 4          &none    &none         &none         &none       &kp RSHIFT
-                                  &trans         &trans          &trans   &trans
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
-=======
-&kp F1  &kp F2   &kp F3   &kp F4   &none     &none    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&kp F5  &kp F6   &kp F7   &kp F8   &none     &kp ESC  &kp RMETA     &kp RCTRL     &kp RALT    &kp TAB
-&kp F9  &kp F10  &kp F11  &kp F12  &tog 4    &tog 4   &kp C_BRI_DN  &kp C_BRI_UP  &none       &kp RSHIFT
-                          &trans   &trans    &trans   &trans
->>>>>>> b8bd06a (Added back F keys.)
-=======
->>>>>>> e7206eb (Added escape key to gaming/mouse layer.)
             >;
         };
 
         double_layer {
-<<<<<<< HEAD
-<<<<<<< HEAD
             display-name = "Gaming & Mouse";
-=======
-            display-name = "Gaming/Mouse";
->>>>>>> 36c11bb (updated README)
-=======
-            display-name = "Gaming & Mouse";
->>>>>>> 9905ff9 (Updated README)
             bindings = <
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 &kp ESC     &kp Q  &kp W  &kp E      &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp T
 &kp LSHIFT  &kp A  &kp S  &kp D      &kp F        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mkp MB4
 &kp LCTRL   &kp Z  &kp X  &kp C      &kp V        &kp LEFT        &kp UP          &kp DOWN      &kp RIGHT        &mkp MB5
                           &kp LMETA  &kp SPACE    &mkp LCLK       &mkp RCLK
-=======
-&tog 3      &kp Q  &kp W  &kp E  &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 3
-&kp LSHIFT  &kp A  &kp S  &kp D  &kp F        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mkp MB4
-&kp LCTRL   &kp Z  &kp X  &kp C  &kp V        &kp LEFT        &kp UP          &kp DOWN      &kp RIGHT        &mkp MB5
-                          &kp T  &kp SPACE    &mkp LCLK       &mkp RCLK
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
-&kp T       &kp Q  &kp W  &kp E      &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 3
-=======
-&kp ESC     &kp Q  &kp W  &kp E      &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp T
->>>>>>> e7206eb (Added escape key to gaming/mouse layer.)
-&kp LSHIFT  &kp A  &kp S  &kp D      &kp F        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mkp MB4
-&kp LCTRL   &kp Z  &kp X  &kp C      &kp V        &kp LEFT        &kp UP          &kp DOWN      &kp RIGHT        &mkp MB5
-                          &kp LMETA  &kp SPACE    &mkp LCLK       &mkp RCLK
->>>>>>> b8bd06a (Added back F keys.)
             >;
         };
 
         bt_and_stuff {
-<<<<<<< HEAD
-<<<<<<< HEAD
             display-name = "BlueTooth & Management";
             bindings = <
 &tog 4  &none  &soft_off        &out OUT_TOG  &bt BT_SEL 0    &bt BT_SEL 2  &none        &none  &none  &tog 4
 &none   &none  &default_report  &bt BT_CLR    &bt BT_SEL 1    &bt BT_SEL 3  &none        &none  &none  &none
 &none   &none  &sys_reset       &bootloader   &bt BT_CLR      &bt BT_SEL 4  &bootloader  &none  &none  &none
                                 &none         &none           &none         &none
-=======
-                &tog 3      &kp Q  &kp W  &kp E  &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &tog 3
-                &kp LSHIFT  &kp A  &kp S  &kp D  &kp F        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mkp MB4
-                &kp LCTRL   &kp Z  &kp X  &kp C  &kp V        &kp LEFT        &kp UP          &kp DOWN      &kp RIGHT        &mkp MB5
-                                          &kp T  &kp SPACE    &mkp LCLK       &mkp RCLK
->>>>>>> e3b6b6c (fixes)
-=======
-            bindings = <
-&tog 4  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
->>>>>>> ff79d13 (Changed layer key behavior to &lo, as &lt could lead to unintended behavior.)
-=======
-            display-name = "BlueTooth & Management";
-            bindings = <
-<<<<<<< HEAD
-&tog 4 &none  &soft_off        &out OUT_TOG  &bt BT_SEL 0  &bt BT_SEL 2  &none       &none  &none  &tog 4
-&none  &none  &default_report  &bt  BT_CLR   &bt BT_SEL 1  &bt BT_SEL 3  &none       &none  &none  &none
-&none  &none  &sys_reset       &bootloader   &bt BT_CLR    &bt BT_SEL 4  &bootloader &none  &none  &none
-                               &none         &none         &none         &none
->>>>>>> 6609ed6 (finished configuring bluetooth layer)
-=======
-&tog 4  &none  &soft_off        &out OUT_TOG  &bt BT_SEL 0    &bt BT_SEL 2  &none        &none  &none  &tog 4
-&none   &none  &default_report  &bt BT_CLR    &bt BT_SEL 1    &bt BT_SEL 3  &none        &none  &none  &none
-&none   &none  &sys_reset       &bootloader   &bt BT_CLR      &bt BT_SEL 4  &bootloader  &none  &none  &none
-                                &none         &none           &none         &none
->>>>>>> 5e1c63c (Fixed &lo -> &mo)
             >;
         };
     };
