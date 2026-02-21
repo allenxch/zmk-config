@@ -1,41 +1,124 @@
 #+Title: allenxch's ferris sweep zmk-config
 
-Original config forked from [[https://github.com/sky-bro/zmk-config/][sky-bro's zmk-config]].
-However, I took a different approach to the symbol layer and modifiers.
+ZMK firmware configuration for a *Cradio (Ferris Sweep)* 34-key split ergonomic keyboard using *Nice!Nano v2* controllers.
+Forked from [[https://github.com/sky-bro/zmk-config/][sky-bro's zmk-config]]. Uses upstream =zmkfirmware/zmk= (configured in =config/west.yml=).
 
-** Flashing ZMK Firmware Tutorial
+** Key Files
 
-1. [[https://github.com/allenxch/zmk-config/fork][fork]] this repo and/or download firmware.zip from github Actions.
-   Unzip it to find the firmware files.
+| File | Purpose |
+|---|---|
+| =config/cradio.keymap= | Keymap with all layers, combos, behaviors, and soft-off wakeup config |
+| =config/cradio.conf= | Kconfig settings (BT, battery, mouse, sleep, ZMK Studio) |
+| =config/west.yml= | West manifest pointing to upstream =zmkfirmware/zmk= |
+| =flake.nix= | Nix flake for local builds via =zmk-nix= |
+| =build.yaml= | GitHub Actions build matrix (boards/shields/snippets) |
+
+** Local Build with Nix
+
+Requires [[https://nixos.org/][Nix]] with flakes enabled.
+
+#+begin_src bash
+# Build firmware (outputs .uf2 files to result/)
+nix build
+
+# Enter development shell (west, cmake, ninja, gcc-arm, etc.)
+nix develop
+
+# Flash firmware to a connected Nice!Nano in bootloader mode
+nix run .#flash
+
+# Update zmk-nix flake input
+nix run .#update
+#+end_src
+
+Note: The =zephyrDepsHash= in =flake.nix= must match the current ZMK/Zephyr dependencies. On first build (or after dependency changes), set it to a fake hash, run =nix build=, and copy the correct hash from the error output.
+
+** GitHub Actions
+
+Push to the repo and the CI workflow (=.github/workflows/build.yml=) produces firmware artifacts using the =zmkfirmware/zmk= reusable workflow.
+
+The build matrix in =build.yaml= defines three targets:
+- =nice_nano//zmk= + =cradio_left= (with =studio-rpc-usb-uart= snippet for ZMK Studio)
+- =nice_nano//zmk= + =cradio_right=
+- =nice_nano//zmk= + =settings_reset= (factory reset utility)
+
+** Flashing
+
+*** Via Nix
+1. Put the Nice!Nano into bootloader mode (=&bootloader= key or double-press reset button).
+2. Run =nix run .#flash=.
+
+*** Manual
+1. Download =firmware.zip= from GitHub Actions artifacts (or run =nix build= and check =result/=).
 2. Connect half to the computer with a usbc data transfer cable.
-3. Press the =&bootloader= key on the keyboard(know your keymap).
-   Press the reset button twice if needed.
+3. Press the =&bootloader= key on the keyboard (know your keymap). Press the reset button twice if needed.
 4. Mount your nicenano. If it does not show up, check your =dmesg= and =lsblk=, then mount it manually with =mount=.
-5. copy the corresponding file to the directory mounted on.
-6. Do steps 2-5 for the other half if this is your first time flashing. If not, you only need to flash the master side(left).
+5. Copy the corresponding =.uf2= file to the directory mounted on.
+6. Do steps 2-5 for the other half if this is your first time flashing. If not, you only need to flash the master side (left).
 
-** Config and Keymap
-    - For specifics please check the files.
+** Keymap
+
+34-key layout (positions 0-33, 4 thumb keys at positions 30-33).
+
+Combo: Pressing both inner thumb keys (positions 30 + 33) simultaneously toggles layer 3 (Gaming & Mouse). Timeout: 300ms.
+
+The =nxtkb/zmk= fork features (=charmap_us=, =default_report=) were removed when switching to upstream ZMK. The =zmk-behavior-report= module is incompatible with the current upstream ZMK API.
 
 *** Base Layer
     - QWERTY with no extra behaviour to ensure smooth vim experience.
 
+    | Q | W | E | R | T |       | Y   | U | I | O | P     |
+    | A | S | D | F | G |       | H   | J | K | L | BSPC  |
+    | Z | X | C | V | B |       | N   | M | , | . | ENTER |
+    |   |   |   | MO 1 | LSFT |   | SPC | MO 2 |   |   |   |
+
 *** Number and Symbol Layer
-    - Numners on the top row.
+    - Numbers on the top row.
     - Additional symbols are accessed with shift.
     - Left Modifiers.
+
+    | 1    | 2    | 3     | 4     | 5   |       | 6 | 7   | 8   | 9  | 0  |
+    | TAB  | LALT | LCTRL | LMETA | ESC |       | ` | [   | ]   | ;  | '  |
+    | LSFT |      | LMETA | LCTRL |     |       |   | -   | =   | \  | /  |
+    |      |      |       | (held) | trans |   | trans | trans |    |    |    |
 
 *** Utility Layer
     - F keys.
     - Useful system functions.
     - Right Modifiers.
 
+    | F1 | F2  | F3  | F4  |      |       |      | VOL-  | VOL+  | MUTE | PSCRN |
+    | F5 | F6  | F7  | F8  | ESC  |       | ESC  | RMETA | RCTRL | RALT | TAB   |
+    | F9 | F10 | F11 | F12 | TOG4 |       | TOG4 | BRI-  | BRI+  |      | RSFT  |
+    |    |     |       | trans | trans |   | (held) | trans |       |      |       |
+
 *** Gaming / Mouse Layer
     - Toggle this layer with a combo of both layer keys.
     - The left half is essentially a one-handed gaming keyboard.
     - The right half is a virtual mouse mimicked with hjkl movement keys.
 
-*** Bluetooth Profiles management and Keyboard management Layer
+    | ESC  | Q | W | E     | R   |       | SCR-L | SCR-D  | SCR-U  | SCR-R | T    |
+    | LSFT | A | S | D     | F   |       | MV-L  | MV-D   | MV-U   | MV-R  | MB4  |
+    | LCTL | Z | X | C     | V   |       | LEFT  | UP     | DOWN   | RIGHT | MB5  |
+    |      |   |       | LMETA | SPC |   | LCLK | RCLK |        |       |      |
+
+*** Bluetooth & Management Layer
+
+    | TOG4 |   | SOFT-OFF | OUT-TOG | BT0  |       | BT2 |      |     |   | TOG4 |
+    |      |   |          | BT-CLR  | BT1  |       | BT3 |      |     |   |      |
+    |      |   | RESET    | BOOTLDR | BT-CLR |     | BT4 | BOOTLDR |  |   |      |
+    |      |   |          |       |      |       |     |       |     |   |      |
+
+** Mouse Behavior Tuning
+
+Mouse behaviors are tuned in the keymap (not conf):
+- =mmv=: Linear acceleration (exponent=1), 300ms to max speed
+- =msc=: No acceleration (exponent=0), 40ms to max speed
+- Default move value: 2500, default scroll value: 20 (set via =#define= at top of keymap)
+
+** Soft-Off Wakeup
+
+Hardware wakeup is configured via GPIO (pin =gpio1 6=) with a =kscan-sideband-behaviors= setup. This allows waking from =&soft_off= by pressing a physical key.
 
 * References
 - [[https://nickcoutsos.github.io/keymap-editor/][keymap editor]]
