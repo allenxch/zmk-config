@@ -80,8 +80,8 @@
             display-name = "Numbers & Symbols";
             bindings = <
 &kp N1      &kp N2    &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9    &kp N0
-&kp TAB     &kp LALT  &kp LCTRL  &kp LMETA  &kp ESC    &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
-&kp LSHIFT  &none     &kp LMETA  &kp LCTRL  &none      &none      &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
+&kp TAB     &kp LALT  &kp LCTRL  &kp LMETA  &none      &kp GRAVE  &kp LBKT   &kp RBKT   &kp SEMI  &kp SQT
+&kp LSHIFT  &none     &kp LMETA  &kp LCTRL  &kp ESC    &kp ESC    &kp MINUS  &kp EQUAL  &kp BSLH  &kp FSLH
                                  &trans     &trans     &trans     &trans
             >;
         };
@@ -89,9 +89,9 @@
         right_layer {
             display-name = "Utilities";
             bindings = <
-&kp F1  &kp F2   &kp F3   &kp F4   &none      &none    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
-&kp F5  &kp F6   &kp F7   &kp F8   &kp ESC    &kp ESC  &kp RMETA     &kp RCTRL     &kp RALT    &kp TAB
-&kp F9  &kp F10  &kp F11  &kp F12  &tog 4     &tog 4   &kp C_BRI_DN  &kp C_BRI_UP  &none       &kp RSHIFT
+&kp F1  &kp F2   &kp F3   &kp F4   &tog 4     &tog 4   &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE  &kp PSCRN
+&kp F5  &kp F6   &kp F7   &kp F8   &none      &kp LEFT &kp DOWN      &kp UP        &kp RIGHT   &kp TAB
+&kp F9  &kp F10  &kp F11  &kp F12  &kp ESC    &kp ESC  &kp RCTRL     &kp RMETA     &none       &kp RSHIFT
                           &trans   &trans     &trans   &trans
             >;
         };
@@ -101,7 +101,7 @@
             bindings = <
 &kp ESC     &kp Q  &kp W  &kp E      &kp R        &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &kp T
 &kp LSHIFT  &kp A  &kp S  &kp D      &kp F        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &mkp MB4
-&kp LCTRL   &kp Z  &kp X  &kp C      &kp V        &kp LEFT        &kp UP          &kp DOWN      &kp RIGHT        &mkp MB5
+&kp LCTRL   &kp Z  &kp X  &kp C      &kp V        &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &mkp MB5
                           &kp LMETA  &kp SPACE    &mkp LCLK       &mkp RCLK
             >;
         };

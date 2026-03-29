@@ -77,20 +77,20 @@ The =nxtkb/zmk= fork features (=charmap_us=, =default_report=) were removed when
     - Additional symbols are accessed with shift.
     - Left Modifiers.
 
-    | 1    | 2    | 3     | 4     | 5   |       | 6 | 7   | 8   | 9  | 0  |
-    | TAB  | LALT | LCTRL | LMETA | ESC |       | ` | [   | ]   | ;  | '  |
-    | LSFT |      | LMETA | LCTRL |     |       |   | -   | =   | \  | /  |
-    |      |      |       | (held) | trans |   | trans | trans |    |    |    |
+    | 1    | 2    | 3     | 4     | 5   |       | 6   | 7 | 8 | 9  | 0  |
+    | TAB  | LALT | LCTRL | LMETA |     |       | `   | [ | ] | ;  | '  |
+    | LSFT |      | LMETA | LCTRL | ESC |       | ESC | - | = | \  | /  |
+    |      |      |       | (held) | trans |   | trans | trans |   |    |    |
 
 *** Utility Layer
     - F keys.
-    - Useful system functions.
-    - Right Modifiers.
+    - Arrow keys in HJKL position.
+    - Right Modifiers (symmetric with left).
 
-    | F1 | F2  | F3  | F4  |      |       |      | VOL-  | VOL+  | MUTE | PSCRN |
-    | F5 | F6  | F7  | F8  | ESC  |       | ESC  | RMETA | RCTRL | RALT | TAB   |
-    | F9 | F10 | F11 | F12 | TOG4 |       | TOG4 | BRI-  | BRI+  |      | RSFT  |
-    |    |     |       | trans | trans |   | (held) | trans |       |      |       |
+    | F1 | F2  | F3  | F4  | TOG4 |       | TOG4 | VOL-  | VOL+  | MUTE  | PSCRN |
+    | F5 | F6  | F7  | F8  |      |       | LEFT | DOWN  | UP    | RIGHT | TAB   |
+    | F9 | F10 | F11 | F12 | ESC  |       | ESC  | RCTRL | RMETA |       | RSFT  |
+    |    |     |     | trans | trans |     | (held) | trans |       |       |       |
 
 *** Gaming / Mouse Layer
     - Toggle this layer with a combo of both layer keys.
@@ -99,7 +99,7 @@ The =nxtkb/zmk= fork features (=charmap_us=, =default_report=) were removed when
 
     | ESC  | Q | W | E     | R   |       | SCR-L | SCR-D  | SCR-U  | SCR-R | T    |
     | LSFT | A | S | D     | F   |       | MV-L  | MV-D   | MV-U   | MV-R  | MB4  |
-    | LCTL | Z | X | C     | V   |       | LEFT  | UP     | DOWN   | RIGHT | MB5  |
+    | LCTL | Z | X | C     | V   |       | LEFT  | DOWN   | UP     | RIGHT | MB5  |
     |      |   |       | LMETA | SPC |   | LCLK | RCLK |        |       |      |
 
 *** Bluetooth & Management Layer
