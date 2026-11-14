@@ -21,10 +21,10 @@
           ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig"
         ];
 
-        board = "nice_nano@2.0.0";
+        board = "nice_nano@2.0.0//zmk";
         shield = "cradio_%PART%";
 
-        zephyrDepsHash = "sha256-sCIbjeRbmKivNQQB4O/E7Hd/1mwfhhLPQTPWE6vADco=";
+        zephyrDepsHash = "sha256-6okCtiDwsKd7uD0BGs3Juu6MHwBSKVPsvCC5A3R0Row=";
 
         enableZmkStudio = true;
 
@@ -33,6 +33,20 @@
           license = nixpkgs.lib.licenses.mit;
           platforms = nixpkgs.lib.platforms.all;
         };
+      };
+
+      settings_reset = zmk-nix.legacyPackages.${system}.buildKeyboard {
+        name = "settings_reset";
+
+        src = nixpkgs.lib.sourceFilesBySuffices self [
+          ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi"
+          ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig"
+        ];
+
+        board = "nice_nano@2.0.0//zmk";
+        shield = "settings_reset";
+
+        zephyrDepsHash = "sha256-JgUJP/Aa3WCeTz9mgR+oJakFWcnxyg9xkjOuYzry3PY=";
       };
 
       flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
